@@ -1,15 +1,15 @@
-// страница списка товаров, полученного в резултате поиска разными способами (по каталогам, строке поиска)
+// страница списка товаров, полученных в резултате поиска разными способами (по каталогам, строке поиска)
 
 import { getData } from "./getData.js";
 import userData from "./userData.js";
 
-// метод запускает формирование контента
+// метод формирует контент
 const generateGoodsPage = () => {
 
   const mainHeader = document.querySelector('.main-header');
   const goodsList = document.querySelector('.goods-list');
 
-  // функция заполнени карточек товаров контентом в результате поиска
+  // функция заполнения карточек товаров контентом в результате поиска
   const generadeCards = (data) => {
 
     const COUNT = 6;
@@ -25,7 +25,7 @@ const generateGoodsPage = () => {
       }
     } */
 
-    // данные из БД перебираем, из отдельных объектов берем данные для соответствующиз товаров
+    // данные из БД перебираем, из отдельных объектов берем данные для соответствующих товаров
     data.forEach(element => {
 
       // вынесем отдельные св-ва объекта в переменные с помощью деструктуризации
@@ -63,18 +63,18 @@ const generateGoodsPage = () => {
 
 
   if(location.search && location.pathname.includes('goods')) {
-    // из объекта location берём значение свойства search, декодируем его в руссий язык
+    // из объекта location берём значение свойства search, декодируем его в русский язык
     let search = decodeURI(location.search); 
 
     /*
     по содержимому из location.search определяем, откуда пошёл поиск.
     (данные из сформированного GET запроса)
     */
-    console.log(search);
+    //console.log(search);
     search = search.split('='); // перезаписываем переменную, теперь переменная хранит ссылку на массив, который поулчился разбитием строки по символу '='
     const prop = search[0].substring(1); //свойство запроса, откуда идёт запрос
     const value = search[1]; // значение запроса, что ищем
-    console.log(prop);
+    //console.log(value);
     
     /* в зависимости от способа запроса */
     // для поиска по строке поиска
@@ -88,7 +88,7 @@ const generateGoodsPage = () => {
         } else {
           mainHeader.textContent = `Поиск: ${value}`;
         }
-        console.log(result);
+        //console.log(result);
         generadeCards(result);
 
       });
@@ -105,7 +105,7 @@ const generateGoodsPage = () => {
           mainHeader.textContent = 'Список понравившихся товаров';
         }
         generadeCards(result);
-        console.log(userData.wishList);
+        //console.log(userData.wishList);
 
       });
       // для поиска по каталогам

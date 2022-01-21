@@ -1,4 +1,4 @@
-
+// создаём и экспортируем по умолчанию функцию, которая генерирует контент header
 const generateHeader = () => {
     const header = `
     <header>

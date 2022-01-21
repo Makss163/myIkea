@@ -4,11 +4,11 @@ import { getData } from "./getData.js";
 const generateFooter = () => {
 
     /*формируем список каталога, в методе catalog возвращаются нужные
-    данные из БД, их получает callback функция*/
+    данные из БД, их аргументом получает callback функция при вызове в методе catalog*/
     getData.catalog((data) => {
 
         let catalogList = '';
-        // перебираем все полученные элементы - названия категорий и подставляем в список
+        // перебираем все полученные элементы - названия категорий, и подставляем в список
         for(let item of data) {
         catalogList += `
             <li 
@@ -16,7 +16,7 @@ const generateFooter = () => {
             </li>`;
         }
 
-        //сформированный список отправляем в вёрстку
+        //сформированный список вставляем в вёрстку
         const footer = `
             <footer>
             <div class="container">

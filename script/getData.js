@@ -13,7 +13,7 @@ export const getData = {
     // промис возвращает объект Responce, вызываем метод json,
     // преобразуем его содержимое в массив
     // новый промис возвращает содержимое файла dataBase.json
-    // содержимое файла dataBase передаём в process
+    // это содержимое передаём в process
     fetch(this.url)
     .then((response) => {
       return response.json();
@@ -59,9 +59,11 @@ export const getData = {
     });
   },
 
-  // метод возвращает элементы из БД, у которых в нужных свойствах (таких как в PARAM) есть подстроки из поиска
+  // метод возвращает элементы из БД, у которых в нужных свойствах (таких как в PARAM - category и subcategory) есть подстроки из поиска
   search(value, callback) {
     this.get((data) => {
+
+      // получаем массив объектов, фильтруя элементы(объекты) из БД
       const result = data.filter((item) => {
         for(let prop in item) {
           // ищем среди тех свойств каждого объекта из БД, которые есть в списке в PARAM.search
@@ -70,6 +72,7 @@ export const getData = {
           }
         }
       });
+
       callback(result);
     });
   },

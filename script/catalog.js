@@ -33,7 +33,7 @@ const useCatalog = () => {
   // функция открытия подменю и добавления классов active на элементы li
   const catalogHandler = (event) => {
     event.preventDefault(); //не даём ссылке отправить на другую страницу
-    const catalogListItem = event.target.closest('.catalog-list__item'); //находим родительский узел li для ссылки, в которую попали, с заданным именем класса
+    const catalogListItem = event.target.closest('.catalog-list__item'); //находим родительский узел li с заданным именем класса для ссылки, в которую попали
     const active = catalog.querySelector('.active'); // находим в области ul элемент в списке классов которого есть active (что-то из li)
 
     if(catalogListItem) { // если попали в область нужного элемента списка
@@ -70,6 +70,7 @@ const useCatalog = () => {
     
   }
 
+  // закрываем подменю
   const closeSubMenu = () => {
     subCatalog.classList.remove('subopen');
   }

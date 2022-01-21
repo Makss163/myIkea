@@ -1,4 +1,5 @@
 'use strict';
+
 import './storage.js';
 import generateHeader from './generateHeader.js';
 import generateFooter from './generateFooter.js';

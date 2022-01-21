@@ -34,6 +34,7 @@ const generateCatalog = () => {
 
     document.body.insertAdjacentHTML('beforeend', catalog);
 
+    // вызываем функцию, которая повесит обработчики события на сформированные элементы вёрстки
     useCatalog();
 
   });
