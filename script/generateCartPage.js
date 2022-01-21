@@ -1,5 +1,6 @@
 import { getData } from "./getData.js";
 import userData from "./userData.js";
+import getCountCart from "./getCountCart.js";
 
 const generateCartPage = () => {
 
@@ -84,6 +85,8 @@ const generateCartPage = () => {
         count: parseInt(e.target.value)
       };
       getData.cart(userData.cartList, generateCartItems);
+      const countCartItems = document.querySelector('.count-cart');
+      countCartItems.textContent = getCountCart();
       //console.log(e.target.value);
     });
 

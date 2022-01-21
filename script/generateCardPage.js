@@ -1,6 +1,7 @@
 
 import { getData } from "./getData.js";
 import userData from "./userData.js";
+import getCountCart from "./getCountCart.js";
 
 const generateCardPage = () => {
 
@@ -110,9 +111,11 @@ const generateCardPage = () => {
 
     // при нажатии на кнопку добавить в корзину
     btnGood.addEventListener('click', () => {
+      const countCartItems = document.querySelector('.count-cart');
       //вызываем сеттер из userData для корзины
       userData.cartList = id;
-      console.log(userData.cartList);
+      //console.log(userData.cartList);
+      countCartItems.textContent = getCountCart();
     });
 
     

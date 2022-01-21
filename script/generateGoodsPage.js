@@ -2,6 +2,7 @@
 
 import { getData } from "./getData.js";
 import userData from "./userData.js";
+import getCountCart from "./getCountCart.js";
 
 // метод формирует контент
 const generateGoodsPage = () => {
@@ -130,6 +131,8 @@ const generateGoodsPage = () => {
         const id = btnAddCard.dataset.idd;
         //вызываем сеттер из userData для корзины
         userData.cartList = id;
+        const countCartItems = document.querySelector('.count-cart');
+        countCartItems.textContent = getCountCart();
       }
 
     });
