@@ -2,6 +2,7 @@
 import { getData } from "./getData.js";
 import userData from "./userData.js";
 import getCountCart from "./getCountCart.js";
+import getCountWishList from "./getCountWishList.js";
 
 const generateCardPage = () => {
 
@@ -105,8 +106,12 @@ const generateCardPage = () => {
 
       //отправляем в сеттер userData id товара для добавления в список понравившегося
       userData.wishList = id;
-
+      // добвляем/убираем для кнопки индикатор понравившегося товара
       checkWishList();
+
+      // показываем количество понравившихся товаров
+      const countWishList = document.querySelector('.count-wishlist');
+      countWishList.textContent = getCountWishList();
     });
 
     // при нажатии на кнопку добавить в корзину

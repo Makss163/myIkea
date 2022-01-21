@@ -877,6 +877,10 @@ footer {
 	margin: 1rem;
 }
 
+.count-items {
+	color: red;
+}
+
 select {
 	width: 100%;
 	max-width: 352px;

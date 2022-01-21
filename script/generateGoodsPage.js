@@ -106,7 +106,7 @@ const generateGoodsPage = () => {
           mainHeader.textContent = 'Список понравившихся товаров';
         }
         generadeCards(result);
-        //console.log(userData.wishList);
+        console.log(userData.wishList.length);
 
       });
       // для поиска по каталогам

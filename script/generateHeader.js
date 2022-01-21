@@ -1,9 +1,10 @@
 import getCountCart from "./getCountCart.js";
+import getCountWishList from "./getCountWishList.js";
 
 // создаём и экспортируем по умолчанию функцию, которая генерирует контент header
 const generateHeader = () => {
-    let sumCountCartItems = getCountCart();
-
+    const sumCountCartItems = getCountCart();
+    const countWishListItems = getCountWishList();
     const header = `
     <header>
     <div class="container">
@@ -26,6 +27,7 @@ const generateHeader = () => {
                 <button type="submit" class="btn search-btn" aria-label="найти"></button>
             </form>
             <a href="goods.html?wishlist" class="btn btn-wishlist">
+                <span class="count-wishlist count-items">${countWishListItems}</span>
                 <svg focusable="false" class="svg-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -33,7 +35,7 @@ const generateHeader = () => {
                 </svg>
             </a>
             <a href="cart.html" class="btn btn-cart">
-                <span class="count-cart">${sumCountCartItems}</span>
+                <span class="count-cart count-items">${sumCountCartItems}</span>
                 <svg focusable="false" class="svg-icon svg-cart" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg" style="display: block;">
                     <path fill-rule="evenodd" clip-rule="evenodd"
